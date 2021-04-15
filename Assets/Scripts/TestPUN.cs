@@ -7,9 +7,9 @@ using Photon.Pun;
 
 public class TestPUN : MonoBehaviourPunCallbacks
 {
-    void Start()
+    private void Awake()
     {
-        Connect();
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public void Connect()
@@ -49,6 +49,7 @@ public class TestPUN : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         print("=== JOINED ROOM ===");
+        PhotonNetwork.LoadLevel(1);
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
