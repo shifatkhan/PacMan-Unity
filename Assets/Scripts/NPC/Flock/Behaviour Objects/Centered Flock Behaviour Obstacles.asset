@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 150ee91b012cb2c47901e3056d924017, type: 3}
+  m_Name: Centered Flock Behaviour Obstacles
+  m_EditorClassIdentifier: 
+  filter: {fileID: 11400000, guid: c2c1f61fd8627d24a84a1cdcdafa441c, type: 2}
+  Behaviours:
+  - {fileID: 11400000, guid: 906ac7ea416a00149b991dab712bdd9b, type: 2}
+  - {fileID: 11400000, guid: b4f0aa24b971ca649b8c858863d2982e, type: 2}
+  - {fileID: 11400000, guid: 28ab506966ef7c94888fd75c5ed4a6ee, type: 2}
+  - {fileID: 11400000, guid: 0a0e770315b5c0d4aa6641964e6d9990, type: 2}
+  weights:
+  - 7
+  - 8
+  - 6
+  - 10
