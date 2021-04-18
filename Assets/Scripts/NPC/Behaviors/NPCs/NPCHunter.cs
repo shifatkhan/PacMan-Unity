@@ -78,7 +78,7 @@ public class NPCHunter : MonoBehaviour
         {
             print("PLAYER COLLIDE WITH hunter");
 
-            player.ReceiveDamage();
+            //player.ReceiveDamage();
         }
     }
 }

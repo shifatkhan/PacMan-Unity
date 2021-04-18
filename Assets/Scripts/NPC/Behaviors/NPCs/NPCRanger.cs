@@ -155,7 +155,7 @@ public class NPCRanger : MonoBehaviour
         if (player != null)
         {
             print("PLAYER COLLIDE WITH ranger");
-            player.ReceiveDamage();
+            //player.ReceiveDamage();
         }
     }
 }

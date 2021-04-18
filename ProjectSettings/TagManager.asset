@@ -7,6 +7,14 @@ TagManager:
   - Bullet
   - Tile Manager
   - Ranger
+  - Ghost
+  - Pellet
+  - Power Pellet
+  - PlayerNode
+  - PlayerNodes
+  - PlayerTM
+  - Unwalkable
+  - Node
   layers:
   - Default
   - TransparentFX
@@ -15,8 +23,8 @@ TagManager:
   - Water
   - UI
   - Unwalkable
-  - 
-  - 
+  - Pellet
+  - Node
   - 
   - 
   - 

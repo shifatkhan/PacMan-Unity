@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1415676453387867852
+--- !u!1 &2738567410781722385
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1415676453387867854}
-  - component: {fileID: 1415676453387867853}
-  - component: {fileID: 1415676453387867855}
-  - component: {fileID: 1415676453387867840}
-  m_Layer: 0
-  m_Name: TileManager
-  m_TagString: Tile Manager
+  - component: {fileID: 2738567410781722391}
+  - component: {fileID: 2738567410781722384}
+  - component: {fileID: 1540761981866791545}
+  - component: {fileID: 1331363313188004342}
+  m_Layer: 8
+  m_Name: AINode
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1415676453387867854
+--- !u!4 &2738567410781722391
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415676453387867852}
+  m_GameObject: {fileID: 2738567410781722385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,51 +33,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1415676453387867853
+--- !u!114 &2738567410781722384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415676453387867852}
+  m_GameObject: {fileID: 2738567410781722385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 832c746b3b78d6843951714ce4737c6e, type: 3}
+  m_Script: {fileID: 11500000, guid: c2b6205e6799fa146a386d61e3c5f48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usingClusters: 0
-  nodePrefab: {fileID: 2738567410781722385, guid: 590ad841f6b998e4aaec8ed9b91eb1f3, type: 3}
-  displayGridGizmos: 0
-  unwalkableLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  graphType: 1
-  gridWorldSize: {x: 40, y: 30}
-  nodeRadius: 0.5
-  povGrid: []
-  clusters: []
---- !u!114 &1415676453387867855
+  displayGizmos: 1
+  gizmoSize: 0.9
+  walkable: 1
+  worldPosition: {x: 0, y: 0, z: 0}
+  gridX: 0
+  gridY: 0
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
+  neighbours: []
+--- !u!114 &1540761981866791545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415676453387867852}
+  m_GameObject: {fileID: 2738567410781722385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00cbdd3d2c6a7d145b601e097196fd09, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e452bdb09ca76943b930cba09c2e64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heuristic: 1
---- !u!114 &1415676453387867840
-MonoBehaviour:
+  SpawnOnStart: 1
+  _prefabToSpawn: {fileID: 7978671666199892743, guid: 57d8ab065d75ce1478ca9fcf08d3b567, type: 3}
+--- !u!65 &1331363313188004342
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415676453387867852}
+  m_GameObject: {fileID: 2738567410781722385}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba6fc7f15a799a548881a411e6950fdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 0.9, z: 0.9}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,16 +37,16 @@ public class Node : MonoBehaviour, IHeapItem<Node>
     private void Awake()
     {
         nodeGraph = GameObject.FindGameObjectWithTag("Tile Manager").GetComponent<NodeGraph>();
-        if (nodeGraph.graphType == NodeGraph.GraphType.POV)
-        {
-            SetWorldPosition();
-            FindPOVNeighbours();
-        }
+        if (nodeGraph.graphType != NodeGraph.GraphType.POV) return;
+        SetWorldPosition();
+        FindPOVNeighbours();
     }
 
-    private void Update()
+    private void Start()
     {
-        
+        var prefabSpawner = GetComponent<PrefabSpawner>();
+        if(prefabSpawner != null && !walkable)
+            prefabSpawner.enabled = false;
     }
 
     /// <summary>
