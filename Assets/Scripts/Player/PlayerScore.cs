@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class PlayerScore : MonoBehaviour
@@ -9,6 +10,8 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private PlayerAudio _playerAudio;
 
+    private PhotonView _photonView;
+    
     private void Start()
     {
         Score = 0;
@@ -17,8 +20,20 @@ public class PlayerScore : MonoBehaviour
             _playerMovement = GetComponent<PlayerMovement>();
         if (_playerAudio == null)
             _playerAudio = GetComponent<PlayerAudio>();
-    }
 
+        _photonView = GetComponent<PhotonView>();
+    }
+    
+    private void PlayCollectAudio()
+    {
+        _playerAudio.PlayCollectAudio();
+    }
+    
+    private void PlayPowerUpAudio()
+    {
+        _playerAudio.PlayPowerUpAudio();
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         // Check which pellet we collected.
@@ -27,7 +42,7 @@ public class PlayerScore : MonoBehaviour
         {
             Score++;
             pellet.Collect();
-            _playerAudio.PlayCollectAudio();
+            PlayCollectAudio();
             return;
         }
         
@@ -36,7 +51,7 @@ public class PlayerScore : MonoBehaviour
         {
             Score++;
             powerPellet.Collect();
-            _playerAudio.PlayPowerUpAudio();
+            PlayPowerUpAudio();
             _playerMovement.PowerUp();
             return;
         }

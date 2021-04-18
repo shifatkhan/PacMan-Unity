@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Audio;
 using Random = UnityEngine.Random;
@@ -13,6 +14,13 @@ public class PlayerAudio : MonoBehaviour
     [SerializeField] private AudioClip dieClip;
     [Header("Mixer Groups")]
     [SerializeField] private AudioSource audioSource;
+
+    private PhotonView _photonView;
+
+    private void Start()
+    {
+        _photonView = GetComponent<PhotonView>();
+    }
 
     public void PlayCollectAudio()
     {
@@ -27,6 +35,9 @@ public class PlayerAudio : MonoBehaviour
 
         this.audioSource.PlayOneShot(this.powerUpClips[index]);
     }
-    
-    public void PlayDieAudio() => this.audioSource.PlayOneShot(this.dieClip);
+
+    public void PlayDieAudio()
+    {
+        this.audioSource.PlayOneShot(this.dieClip);
+    }
 }

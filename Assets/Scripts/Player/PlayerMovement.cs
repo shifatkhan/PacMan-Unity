@@ -56,8 +56,8 @@ public class PlayerMovement : MonoBehaviourPun
 
     private void Update()
     {
-        // if (!photonView.IsMine && PhotonNetwork.IsConnected)
-        //     return;
+        if (!photonView.IsMine && PhotonNetwork.IsConnected)
+            return;
         
         // INPUT.
         var horizontalInput = Input.GetAxis("Horizontal");

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2253659127792258741}
-  - component: {fileID: 2253659127792258738}
+  - component: {fileID: 829485940747389096}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2253659127792258738
+--- !u!114 &829485940747389096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2253659127792258740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 183f4f07b46a2214e8b3fcad1905c7b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 675c383abaadb784c82b6da7c9c922de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerPrefab: {fileID: 1831017105125560535, guid: 5c0e036fe36e2d14abb403e8fcd9f0b0, type: 3}
+  _playerPrefab: {fileID: 1836481414616311231, guid: c7d5b3d901cfa62479758a41d7b15e95, type: 3}
   _spawnPosition: {fileID: 2253659128016956939}
   _mainMenuScene: MainMenuScene
 --- !u!1 &2253659128016956938
