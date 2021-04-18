@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviourPun
 {
     [Header("Movement")]
     [SerializeField] private float _moveSpeed = 10f;
+    [SerializeField] private float _powerUpSpeed = 10f;
+    [SerializeField] private float _powerUpDuration = 5f;
+    private float _currentSpeed;
     [SerializeField] private StartDirection _startDirection;
     
     [Header("Grid movement")]
@@ -43,6 +46,8 @@ public class PlayerMovement : MonoBehaviourPun
         // We will move this MovePoint ahead of us to check if there's a wall.
         _movePoint.parent = null;
         _nodeGraph = GameObject.FindWithTag("Tile Manager").GetComponent<NodeGraph>();
+
+        _currentSpeed = _moveSpeed;
     }
 
     private void Update()
@@ -55,7 +60,7 @@ public class PlayerMovement : MonoBehaviourPun
         var verticalInput = Input.GetAxis("Vertical");
         
         // GRID MOVEMENT.
-        transform.position = Vector3.MoveTowards(transform.position, _movePoint.position, _moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _movePoint.position, _currentSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, _movePoint.position) <= _movePointSmoothing)
         {
@@ -87,6 +92,21 @@ public class PlayerMovement : MonoBehaviourPun
     }
 
     public void ResetMovePoint() => _movePoint.position = transform.position;
+
+    public void PowerUp()
+    {
+        StartCoroutine(PowerUpCo());
+    }
+
+    private IEnumerator PowerUpCo()
+    {
+        // Speed player up for a short duration.
+        _currentSpeed = _powerUpSpeed;
+
+        yield return new WaitForSeconds(_powerUpDuration);
+        
+        _currentSpeed = _moveSpeed;
+    }
     
     public void Die()
     {
