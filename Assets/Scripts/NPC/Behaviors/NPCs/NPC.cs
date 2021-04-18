@@ -127,8 +127,8 @@ public class NPC : MonoBehaviourPun
         
         if (target != null)
             distance = target - transform.position;
-            if (flee)
-                distance *= -1;
+        if (flee)
+            distance *= -1;
 
         switch (behaviorIndex)
         {

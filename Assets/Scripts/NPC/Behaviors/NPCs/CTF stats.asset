@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622f9a0ea72fda74faaea24658c08ae6, type: 3}
   m_Name: CTF stats
   m_EditorClassIdentifier: 
-  maxSpeed: 15
+  maxSpeed: 5
   wanderSpeed: 5
-  nearDistance: 5
-  smallDistance: 2
+  nearDistance: 0.1
+  smallDistance: 0.1
   slowRadius: 10
   targetRadius: 0.1
   maxPrediction: 1

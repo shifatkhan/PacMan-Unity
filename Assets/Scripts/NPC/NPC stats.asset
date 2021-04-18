@@ -16,11 +16,11 @@ MonoBehaviour:
   wanderSpeed: 5
   nearDistance: 10
   smallDistance: 2
-  slowRadius: 3
-  targetRadius: 0.1
+  slowRadius: 0.1
+  targetRadius: 0
   maxPrediction: 1
   timeToTarget: 0.1
-  rotationSpeed: 2
+  rotationSpeed: 1000
   viewAngle: 45
   minViewAngle: 20
   viewRange: 10

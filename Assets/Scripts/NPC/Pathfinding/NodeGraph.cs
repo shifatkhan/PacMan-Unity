@@ -115,7 +115,18 @@ public class NodeGraph : MonoBehaviour
             {
                 for (int y = -1; y <= 1; y++)
                 {
+                    // Skip center node.
                     if (x == 0 && y == 0)
+                        continue;
+                    
+                    // Skip diagonal nodes.
+                    if(x == -1 && y == -1)
+                        continue;
+                    if(x == -1 && y == 1)
+                        continue;
+                    if(x == 1 && y == -1)
+                        continue;
+                    if(x == 1 && y == 1)
                         continue;
 
                     int checkX = node.gridX + x;

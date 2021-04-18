@@ -10,6 +10,7 @@ public class PlayerAudio : MonoBehaviour
     [Header("Audio Clips")]
     [SerializeField] private AudioClip[] collectClips;
     [SerializeField] private AudioClip[] powerUpClips;
+    [SerializeField] private AudioClip dieClip;
     [Header("Mixer Groups")]
     [SerializeField] private AudioSource audioSource;
 
@@ -26,4 +27,6 @@ public class PlayerAudio : MonoBehaviour
 
         this.audioSource.PlayOneShot(this.powerUpClips[index]);
     }
+    
+    public void PlayDieAudio() => this.audioSource.PlayOneShot(this.dieClip);
 }

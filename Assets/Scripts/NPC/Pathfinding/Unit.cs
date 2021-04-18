@@ -16,6 +16,7 @@ public class Unit : MonoBehaviour
     [SerializeField] private float pathfindingInterval = 2f;
     [SerializeField] private bool keepPathfinding = true;
 
+    [SerializeField] private bool enableDirectPathingWhenNear = false;
     private bool directPathing = false;
     
     private void Awake() => npc = GetComponent<NPC>();
@@ -23,6 +24,7 @@ public class Unit : MonoBehaviour
     private void Start()
     {
         directPathing = false;
+        enableDirectPathingWhenNear = false;
         
         StartCoroutine(ComputePathfindingCo());
     }
@@ -32,7 +34,7 @@ public class Unit : MonoBehaviour
         if(target == null)
             return;
         
-        if ((target.position - transform.position).magnitude <= this.npc.NearRadius)
+        if ((target.position - transform.position).magnitude <= this.npc.NearRadius && enableDirectPathingWhenNear)
         {
             this.npc.SetTarget(target.position);
             this.directPathing = true;
@@ -69,8 +71,6 @@ public class Unit : MonoBehaviour
             {
                 totalLength += (path[i + 1] - path[i]).magnitude;
             }
-
-            //Debug.Log($"Total path length = {totalLength}");
 
             StopCoroutine("FollowPath");
             StartCoroutine("FollowPath");

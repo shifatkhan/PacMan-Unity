@@ -2,14 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Unit))]
-public class NPCHunter : MonoBehaviour
+public class NPCGhost : MonoBehaviour
 {
     private Unit _unit;
     [SerializeField] private List<Transform> players;
     [Tooltip("The time interval (in seconds) at which we select our target.")]
     [SerializeField] private float targetSelectionInterval = 2f;
+    [SerializeField] private float targetSelectionIntervalMax = 3f;
     
     private void Awake()
     {
@@ -41,12 +43,9 @@ public class NPCHunter : MonoBehaviour
                     }
                 }
             
-                print($"=== NUM OF PLAYERS {playerCount}");
-                print($"=== IndexOfPlayer {indexOfClosestPlayer}");
-            
                 _unit.SetTarget(players[indexOfClosestPlayer]);
                 
-                yield return new WaitForSeconds(this.targetSelectionInterval);
+                yield return new WaitForSeconds(Random.Range(this.targetSelectionInterval, this.targetSelectionIntervalMax));
             }
             else
             {
@@ -71,14 +70,12 @@ public class NPCHunter : MonoBehaviour
         StartCoroutine(ComputeSelectTargetCo());
     }
     
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
         if (player != null)
         {
-            print("PLAYER COLLIDE WITH hunter");
-
-            //player.ReceiveDamage();
+            player.Die();
         }
     }
 }

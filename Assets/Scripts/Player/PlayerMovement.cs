@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviourPun
     private bool _isMoving = false;
     private Vector3 _lastPosition;
     private NodeGraph _nodeGraph;
+    private PlayerAudio _playerAudio;
+    private Vector3 _spawnPoint;
     
     public enum StartDirection
     {
@@ -38,16 +40,18 @@ public class PlayerMovement : MonoBehaviourPun
     private void Start()
     {
         // Add this player to ghost instances.
-        // GameObject[] ghosts = GameObject.FindGameObjectsWithTag("Hunter");
-        // if(ghosts != null)
-        //     foreach (var ghost in ghosts)
-        //         ghost.GetComponent<NPCHunter>().AddPlayer(transform);
+        GameObject[] ghosts = GameObject.FindGameObjectsWithTag("Ghost");
+        foreach (var ghost in ghosts)
+            ghost.GetComponent<NPCGhost>().AddPlayer(transform);
         
         // We will move this MovePoint ahead of us to check if there's a wall.
         _movePoint.parent = null;
         _nodeGraph = GameObject.FindWithTag("Tile Manager").GetComponent<NodeGraph>();
 
         _currentSpeed = _moveSpeed;
+
+        _playerAudio = GetComponent<PlayerAudio>();
+        _spawnPoint = transform.position;
     }
 
     private void Update()
@@ -110,8 +114,9 @@ public class PlayerMovement : MonoBehaviourPun
     
     public void Die()
     {
-        PhotonNetwork.LeaveRoom();
-        PhotonNetwork.Disconnect();
+        _playerAudio.PlayDieAudio();
+        transform.position = _spawnPoint;
+        ResetMovePoint();
     }
 
     private void OnDrawGizmosSelected()
