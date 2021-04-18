@@ -39,6 +39,10 @@ public class LoopAround : MonoBehaviour
             {
                 other.transform.position = new Vector3(otherPos.y, otherPos.y, teleportDestination.position.z + offset);
             }
+
+            PlayerMovement player = other.GetComponent<PlayerMovement>();
+            if(player != null)
+                player.ResetMovePoint();
         }
     }
 }

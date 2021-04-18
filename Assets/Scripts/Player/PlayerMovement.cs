@@ -85,6 +85,8 @@ public class PlayerMovement : MonoBehaviourPun
                 transform.rotation = Quaternion.LookRotation(moveOffset, Vector3.up);
         }
     }
+
+    public void ResetMovePoint() => _movePoint.position = transform.position;
     
     public void Die()
     {

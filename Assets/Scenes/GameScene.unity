@@ -393,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1415676453387867853, guid: 18fb9e7db22ed7545b7dba55a6b0944f, type: 3}
       propertyPath: displayGridGizmos
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1415676453387867854, guid: 18fb9e7db22ed7545b7dba55a6b0944f, type: 3}
       propertyPath: m_RootOrder
@@ -552,7 +552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1836481414616311227, guid: c7d5b3d901cfa62479758a41d7b15e95, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1836481414616311227, guid: c7d5b3d901cfa62479758a41d7b15e95, type: 3}
       propertyPath: m_LocalPosition.y
@@ -560,7 +560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1836481414616311227, guid: c7d5b3d901cfa62479758a41d7b15e95, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: -13.5
       objectReference: {fileID: 0}
     - target: {fileID: 1836481414616311227, guid: c7d5b3d901cfa62479758a41d7b15e95, type: 3}
       propertyPath: m_LocalRotation.w
